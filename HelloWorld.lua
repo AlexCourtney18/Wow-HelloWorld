@@ -4,9 +4,7 @@ SLASH_VAULT1 = '/vault'
 
 local function showGreeting(name, level) 
     local greeting = "Hello, " .. name .. "! Level " .. level .. " God!" 
-
     message(greeting)
-    print(level)
 end
 
 -- /helloworld 
