@@ -2,10 +2,11 @@
 SLASH_HELLO1 = '/helloworld'
 SLASH_VAULT1 = '/vault'
 
-local function showGreeting(name) 
-    local greeting = "Hello, " .. name .. "!"
+local function showGreeting(name, level) 
+    local greeting = "Hello, " .. name .. "! Level " .. level .. " God!" 
 
     message(greeting)
+    print(level)
 end
 
 -- /helloworld 
@@ -16,13 +17,14 @@ local function HelloWorldHandler(name)
         showGreeting(name)
     else 
         local playerName = UnitName("player")
-        showGreeting(playerName)
+        local playerLevel = UnitLevel("player")
+        showGreeting(playerName, playerLevel)
     end
 end
 
 local function VaultHandler()
     local activities = C_WeeklyRewards.GetActivities();
-    message("TEST")
+    print("TEST")
 	for i, activityInfo in ipairs(activities) do
 		if (not activityType or activityInfo.type == activityType) and activityInfo.progress >= activityInfo.threshold then
 			return true;
