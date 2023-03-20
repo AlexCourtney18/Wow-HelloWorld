@@ -25,15 +25,13 @@ local function VaultHandler()
     print("TEST")
 	for i, activityInfo in ipairs(activities) do
 		if (not activityType or activityInfo.type == activityType) and activityInfo.progress >= activityInfo.threshold then
+            print(#activities, "Activity Info")
 			return true;
 		end
 	end
 
     
 	return false;
-
-
-
 end
 
 SlashCmdList["HELLO"] = HelloWorldHandler
