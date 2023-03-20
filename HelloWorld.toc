@@ -1,0 +1,5 @@
+## Interface: 100005
+## Title: HelloWorld
+## Notes: Shows a message of "Hello, World!" on screen.
+## Author: Beriech
+## Version: 0.0.1
