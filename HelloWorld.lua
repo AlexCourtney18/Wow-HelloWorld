@@ -19,6 +19,38 @@ end
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
+local UIConfig = CreateFrame("Frame", "VaultFrame", UIParent, "BasicFrameTemplateWithInset");
+
+--[[
+    CreateFrame arguments:
+    1. The tyoe of frame - "Frame"
+    2. The global frame name = "VaultFrame"
+    3. The Parent frame (NOT a string!!) - UIParent
+    4. A comma separated LIST (string list) of XML templates to inherit from
+        - this does NOT need to be a comma separated list however
+        - I'm only using 1 XML template - "BasicFrameTemplateWithInset"
+]]
+
+UIConfig:SetSize(300, 360); -- width, height
+UIConfig:SetPoint("Center", UIParent, "Center"); -- point, relativeFrame, relativePoint, xOffset, yOffset
+
+-- Point and relativePoint ("CENTER") could have been any of the following options:
+
+--[[
+    "TOPLEFT"
+    "TOP"
+    "TOPRIGHT"
+    "LEFT"
+    "CENTER"
+    "RIGHT"
+    "BOTTOMLEFT"
+    "BOTTOM"
+    "BOTTOMRIGHT"
+]]
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
 local function showGreeting(name, level) 
     local greeting = "Hello, " .. name .. "! Level " .. level .. " God!" 
     message(greeting)
