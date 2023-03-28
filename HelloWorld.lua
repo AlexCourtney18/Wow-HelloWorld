@@ -2,6 +2,23 @@
 SLASH_HELLO1 = '/helloworld'
 SLASH_VAULT1 = '/vault'
 
+SLASH_RELOADUI1 = '/rl' -- Quicker reloading
+SlashCmdList.RELOADUI = ReloadUI
+
+SLASH_FRAMESTK1 = '/fs' -- For quicker access to frame stack
+SlashCmdList.FRAMESTK = function ()
+    LoadAddOn('Blizzard_DebugTools')
+    FrameStackTooltip_Toggle()
+end
+
+-- To be able to use the left and right arrows in the edit box
+-- without rotating your character!
+for i = 1, NUM_CHAT_WINDOWS do
+    _G["ChatFrame"..i.."EditBox"]:SetAltArrowKeyMode(false)
+end
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
 local function showGreeting(name, level) 
     local greeting = "Hello, " .. name .. "! Level " .. level .. " God!" 
     message(greeting)
@@ -20,6 +37,7 @@ local function HelloWorldHandler(name)
     end
 end
 
+-- /vault
 local function VaultHandler()
     local activities = C_WeeklyRewards.GetActivities();
     print("TEST")
