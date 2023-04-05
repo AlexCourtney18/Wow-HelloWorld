@@ -88,8 +88,8 @@ function core:init(event, name)
         FrameStackTooltip_Toggle()
     end
 
-    SLASH_AuraTracker1 = "/at"
-    SlashCmdList.AuraTacker = HandleSlashCommands
+    SLASH_AuraTracker1 = "/at";
+    SlashCmdList.AuraTracker = HandleSlashCommands;
 
     core:Print("Welcome back", UnitName("player") .. "!")
 end
