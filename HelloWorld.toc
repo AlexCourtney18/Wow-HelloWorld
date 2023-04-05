@@ -1,7 +1,10 @@
 ## Interface: 100007
 ## Title: HelloWorld
 ## Notes: Shows a message of "Hello, World!" on screen.
+## DefaultState: enabled
+## SavedVariables: AuraTrackerDB
 ## Author: Beriech
+
 ## Version: 0.0.1
 
 config.lua

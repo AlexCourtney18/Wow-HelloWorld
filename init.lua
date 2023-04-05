@@ -1,5 +1,27 @@
 local _, core = ...; --Namespace
 
+--------------------------------------
+-- Custom Slash Command
+--------------------------------------
+core.commands = {
+    ["config"] = core.Config.Toggle, -- this is a function (no knowledge of Config object)
+    
+        ["help"] = function ()
+            print(" ");
+            core:Print("List of slash commands:")
+            core:Print("|cff00cc66/at config|r - shows config menu");
+            core:Print("|cff00cc66/at help|r - shows help info");
+            print(" ");
+        end,
+
+        ["example"] = {
+            ["test"] = function(...)
+                core:Print("My Value:", tostringall(...));
+            end
+        }
+};
+
+
 function core:Print(...)
     local hex = select(4, self.Config:GetThemeColor());
     local prefix = string.format("|cff%s%s|r", hex:upper(), "Aura Tracker:");
@@ -33,10 +55,10 @@ function core:init(event, name)
         FrameStackTooltip_Toggle()
     end
 
-    SLASH_AuraTracker1 = "/at"
-    SlashCmdList.AuraTacker = HandleSlashCommands
+    SLASH_AuraTracker1 = "/at";
+    SlashCmdList.AuraTacker = HandleSlashCommands;
 
-    core:Print("Welcome back", UnitName("player") .. "!")
+    core:Print("Welcome back", UnitName("player") .. "!");
 end
 
 

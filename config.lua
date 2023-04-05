@@ -7,8 +7,17 @@ core.Config = {} -- adds Config table to add on namespace
 local Config = core.Config
 local UIConfig
 
-
-------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------
+-- Defaults (usually a database!)
+--------------------------------------
+local defaults = {
+    theme = {
+        r = 0,
+        g = 0.8, -- 204/255
+        b = 1,
+        hex = "00ccff"
+    }
+}
 
 --------------------------------------
 -- Config functions
@@ -51,20 +60,10 @@ function Config:CreateMenu()
     UIConfig.saveBtn = self:CreateButton("CENTER", UIConfig, "TOP", 0, -70, "Save")
 
     -- Reset Button:
-    UIConfig.resetBtn = CreateFrame("Button", nil, UIConfig, "GameMenuButtonTemplate")
-    UIConfig.resetBtn:SetPoint("TOP", UIConfig.saveBtn, "BOTTOM", 0, -10)
-    UIConfig.resetBtn:SetSize(140, 40)
-    UIConfig.resetBtn:SetText("Reset")
-    UIConfig.resetBtn:SetNormalFontObject("GameFontNormalLarge")
-    UIConfig.resetBtn:SetHighlightFontObject("GameFontHighlightLarge")
+    UIConfig.resetBtn = self:CreateButton("TOP", UIConfig.saveBtn, "BOTTOM", 0, -10, "Reset");
 
     -- Load Button:
-    UIConfig.loadBtn = CreateFrame("Button", nil, UIConfig, "GameMenuButtonTemplate")
-    UIConfig.loadBtn:SetPoint("TOP", UIConfig.resetBtn, "BOTTOM", 0, -10)
-    UIConfig.loadBtn:SetSize(140, 40)
-    UIConfig.loadBtn:SetText("Load")
-    UIConfig.loadBtn:SetNormalFontObject("GameFontNormalLarge")
-    UIConfig.loadBtn:SetHighlightFontObject("GameFontHighlightLarge")
+    UIConfig.loadBtn = self:CreateButton("TOP", UIConfig.resetBtn, "BOTTOM", 0, -10, "Load");
 
     ---------------------------------
     -- Sliders
