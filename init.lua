@@ -20,6 +20,7 @@ core.commands = {
 }
 
 local function HandleSlashCommands(str)
+    
     if (#str == 0) then
         -- User just enetered "/at" with no additional args.
         core.commands.help()

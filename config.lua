@@ -45,7 +45,7 @@ end
 
 function Config:CreateMenu()
     UIConfig = CreateFrame("Frame", "VaultFrame", UIParent, "BasicFrameTemplateWithInset")
-    UIConfig:SetSize(260, 360)
+    UIConfig:SetSize(260, 400)
     UIConfig:SetPoint("Center")
 
     UIConfig.title = UIConfig:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
@@ -57,13 +57,13 @@ function Config:CreateMenu()
     ---------------------------------
 
     -- Save Button:
-    UIConfig.saveBtn = self:CreateButton("CENTER", UIConfig, "TOP", 0, -70, "Save")
+    UIConfig.saveBtn = self:CreateButton("CENTER", UIConfig, "TOP", -70, "Save")
 
     -- Reset Button:
-    UIConfig.resetBtn = self:CreateButton("TOP", UIConfig.saveBtn, "BOTTOM", 0, -10, "Reset");
+    UIConfig.resetBtn = self:CreateButton("TOP", UIConfig.saveBtn, "BOTTOM", -10, "Reset");
 
     -- Load Button:
-    UIConfig.loadBtn = self:CreateButton("TOP", UIConfig.resetBtn, "BOTTOM", 0, -10, "Load");
+    UIConfig.loadBtn = self:CreateButton("TOP", UIConfig.resetBtn, "BOTTOM", -10, "Load");
 
     ---------------------------------
     -- Sliders
