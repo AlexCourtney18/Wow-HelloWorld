@@ -6,15 +6,15 @@ local _, core = ... --Namespace
 core.commands = {
     ["config"] = core.Config.Toggle, -- this is a function (no knowledge of Config object)
     ["help"] = function()
-        print(" ")
-        core:Print("List of slash commands:")
-        core:Print("|cff00cc66/at config|r - shows config menu")
-        core:Print("|cff00cc66/at help|r - shows help info")
-        print(" ")
+        print(" ");
+        core:Print("List of slash commands:");
+        core:Print("|cff00cc66/at config|r - shows config menu");
+        core:Print("|cff00cc66/at help|r - shows help info");
+        print(" ");
     end,
     ["example"] = {
         ["test"] = function(...)
-            core:Print("My Value:", tostringall(...))
+            core:Print("My Value:", tostringall(...));
         end
     }
 }
@@ -44,7 +44,7 @@ local function HandleSlashCommands(str)
                     path[arg](select(id + 1, unpack(args)))
                     return
                 elseif (type(path[arg]) == "table") then
-                    path = parth[arg] -- another sub-table found!
+                    path = path[arg] -- another sub-table found!
                 end
             else
                 -- does not exist!
