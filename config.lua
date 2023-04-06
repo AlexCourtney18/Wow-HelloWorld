@@ -43,6 +43,19 @@ function Config:CreateButton(point, relativeFrame, relativePoint, yOffset, text)
     return btn
 end
 
+local function ScrollFrame_OnMouseWheel(self, delta)
+    local newValue = self:GetVerticalScroll() - (delta * 20);
+
+    if (newValue < 0) then
+        newValue = 0;
+    elseif (newValue > self:GetVerticalScrollRange()) then
+        newValue = self:GetVerticalScrollRange();
+    end
+
+    self:SetVerticalScroll(newValue);
+end
+
+
 function Config:CreateMenu()
     UIConfig = CreateFrame("Frame", "VaultFrameConfig", UIParent, "UIPanelDialogTemplate")
     UIConfig:SetSize(350, 400);
@@ -54,24 +67,19 @@ function Config:CreateMenu()
     UIConfig.title:SetText("Beriech's Vault Viewer")
 
     UIConfig.ScrollFrame = CreateFrame("ScrollFrame", nil, UIConfig, "UIPanelScrollFrameTemplate");
-
     UIConfig.ScrollFrame:SetPoint("TOPLEFT", VaultFrameConfigDialogBG, "TOPLEFT", 4, -8);
     UIConfig.ScrollFrame:SetPoint("BOTTOMRIGHT", VaultFrameConfigDialogBG, "BOTTOMRIGHT", -3, 4);
-
     UIConfig.ScrollFrame:SetClipsChildren(true);
-
-    local child = CreateFrame("Frame", nil, UIConfig.ScrollFrame);
-    child:SetSize(308, 500);
-
-    child.bg = child:CreateTexture(nil, "BACKGROUND");
-    child.bg:SetAllPoints(true);
-    child.bg:SetColorTexture(0.2, 0.6, 0, 0.8);
-
-    UIConfig.ScrollFrame:SetScrollChild(child);
+    UIConfig.ScrollFrame:SetScript("OnMouseWheel", ScrollFrame_OnMouseWheel);
 
     UIConfig.ScrollFrame.ScrollBar:ClearAllPoints();
     UIConfig.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", UIConfig.ScrollFrame, "TOPRIGHT", -12, -18);
     UIConfig.ScrollFrame.ScrollBar:SetPoint("BOTTOMRIGHT", UIConfig.ScrollFrame, "BOTTOMRIGHT", -4, 18);
+
+    local child = CreateFrame("Frame", nil, UIConfig.ScrollFrame);
+    child:SetSize(308, 500);
+    UIConfig.ScrollFrame:SetScrollChild(child);
+    
 
     ---------------------------------
     -- Buttons
