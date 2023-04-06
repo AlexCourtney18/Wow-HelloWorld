@@ -45,7 +45,7 @@ end
 
 function Config:CreateMenu()
     UIConfig = CreateFrame("Frame", "VaultFrameConfig", UIParent, "UIPanelDialogTemplate")
-    UIConfig:SetSize(260, 400)
+    UIConfig:SetSize(350, 400);
     UIConfig:SetPoint("Center")
 
     UIConfig.title = UIConfig:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
@@ -57,6 +57,11 @@ function Config:CreateMenu()
 
     UIConfig.ScrollFrame:SetPoint("TOPLEFT", VaultFrameConfigDialogBG, "TOPLEFT", 4, -8);
     UIConfig.ScrollFrame:SetPoint("BOTTOMRIGHT", VaultFrameConfigDialogBG, "BOTTOMRIGHT", -3, 4);
+
+    local child = CreateFrame("Frame", nil, UIConfig.ScrollFrame);
+    child:SetSize(308, 500);
+
+    UIConfig.ScrollFrame:SetScrollChild(child);
 
     ---------------------------------
     -- Buttons
