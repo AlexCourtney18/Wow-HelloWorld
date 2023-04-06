@@ -44,12 +44,13 @@ function Config:CreateButton(point, relativeFrame, relativePoint, yOffset, text)
 end
 
 function Config:CreateMenu()
-    UIConfig = CreateFrame("Frame", "VaultFrame", UIParent, "BasicFrameTemplateWithInset")
+    UIConfig = CreateFrame("Frame", "VaultFrameConfig", UIParent, "UIPanelDialogTemplate")
     UIConfig:SetSize(260, 400)
     UIConfig:SetPoint("Center")
 
     UIConfig.title = UIConfig:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-    UIConfig.title:SetPoint("LEFT", UIConfig.TitleBg, "LEFT", 5, 0)
+    UIConfig.title:ClearAllPoints();
+    UIConfig.title:SetPoint("LEFT", VaultFrameConfigTitleBG, "LEFT", 6, 1)
     UIConfig.title:SetText("Beriech's Vault Viewer")
 
     ---------------------------------
