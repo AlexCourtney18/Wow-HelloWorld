@@ -53,6 +53,11 @@ function Config:CreateMenu()
     UIConfig.title:SetPoint("LEFT", VaultFrameConfigTitleBG, "LEFT", 6, 1)
     UIConfig.title:SetText("Beriech's Vault Viewer")
 
+    UIConfig.ScrollFrame = CreateFrame("ScrollFrame", nil, UIConfig, "UIPanelScrollFrameTemplate");
+
+    UIConfig.ScrollFrame:SetPoint("TOPLEFT", VaultFrameConfigDialogBG, "TOPLEFT", 4, -8);
+    UIConfig.ScrollFrame:SetPoint("BOTTOMRIGHT", VaultFrameConfigDialogBG, "BOTTOMRIGHT", -3, 4);
+
     ---------------------------------
     -- Buttons
     ---------------------------------
